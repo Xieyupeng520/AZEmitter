@@ -13,6 +13,8 @@
 		63A6E59F1E2E171E00802743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E59D1E2E171E00802743 /* Main.storyboard */; };
 		63A6E5A11E2E171E00802743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5A01E2E171E00802743 /* Assets.xcassets */; };
 		63A6E5A41E2E171E00802743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5A21E2E171E00802743 /* LaunchScreen.storyboard */; };
+		63A6E5B01E2E174900802743 /* AZEmitterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5AD1E2E174900802743 /* AZEmitterLayer.m */; };
+		63A6E5B11E2E174900802743 /* AZParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5AF1E2E174900802743 /* AZParticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		63A6E5A01E2E171E00802743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63A6E5A31E2E171E00802743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63A6E5A51E2E171E00802743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A6E5AC1E2E174900802743 /* AZEmitterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZEmitterLayer.h; sourceTree = "<group>"; };
+		63A6E5AD1E2E174900802743 /* AZEmitterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZEmitterLayer.m; sourceTree = "<group>"; };
+		63A6E5AE1E2E174900802743 /* AZParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZParticle.h; sourceTree = "<group>"; };
+		63A6E5AF1E2E174900802743 /* AZParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZParticle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		63A6E5931E2E171E00802743 /* AZEmitter */ = {
 			isa = PBXGroup;
 			children = (
+				63A6E5AB1E2E174900802743 /* model */,
 				63A6E5971E2E171E00802743 /* AppDelegate.h */,
 				63A6E5981E2E171E00802743 /* AppDelegate.m */,
 				63A6E59A1E2E171E00802743 /* ViewController.h */,
@@ -77,6 +84,17 @@
 				63A6E5951E2E171E00802743 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63A6E5AB1E2E174900802743 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				63A6E5AC1E2E174900802743 /* AZEmitterLayer.h */,
+				63A6E5AD1E2E174900802743 /* AZEmitterLayer.m */,
+				63A6E5AE1E2E174900802743 /* AZParticle.h */,
+				63A6E5AF1E2E174900802743 /* AZParticle.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +169,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A6E5B11E2E174900802743 /* AZParticle.m in Sources */,
 				63A6E59C1E2E171E00802743 /* ViewController.m in Sources */,
+				63A6E5B01E2E174900802743 /* AZEmitterLayer.m in Sources */,
 				63A6E5991E2E171E00802743 /* AppDelegate.m in Sources */,
 				63A6E5961E2E171E00802743 /* main.m in Sources */,
 			);
