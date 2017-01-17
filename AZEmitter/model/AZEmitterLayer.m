@@ -14,6 +14,7 @@
     CADisplayLink* _displayLink;
     int _count;
 }
+@property(nonatomic,strong)NSArray* particleArray;
 @end
 @implementation AZEmitterLayer
 
@@ -26,6 +27,9 @@
         _animTime = 0;
         _animDuration = 10;
         _count = 0;
+        _ignoredWhite = NO;
+        _ignoredBlack = NO;
+        _beginPoint = CGPointMake(0, 0);
     }
     return self;
 }
@@ -48,18 +52,12 @@
             count ++;
         }
         
-        CGFloat curX = [self easeInOutQuad:curTime begin:self.bounds.size.width/2 end:particle.orignPoint.x + self.bounds.size.width/2-CGImageGetWidth(_image.CGImage)/2 duration:_animDuration + particle.delayDuration];
-        CGFloat curY = [self easeInOutQuad:curTime begin:0 end:particle.orignPoint.y + self.bounds.size.height/2 - CGImageGetHeight(_image.CGImage)/2 duration:_animDuration + particle.delayDuration];
-        particle.point = CGPointMake(curX, curY);
+        CGFloat curX = [self easeInOutQuad:curTime begin:_beginPoint.x end:particle.point.x + self.bounds.size.width/2-CGImageGetWidth(_image.CGImage)/2 duration:_animDuration + particle.delayDuration];
+        CGFloat curY = [self easeInOutQuad:curTime begin:_beginPoint.y end:particle.point.y + self.bounds.size.height/2 - CGImageGetHeight(_image.CGImage)/2 duration:_animDuration + particle.delayDuration];
         CGContextAddEllipseInRect(ctx, CGRectMake(curX , curY , 1, 1));
         const CGFloat* components = CGColorGetComponents(particle.color.CGColor);
         CGContextSetRGBFillColor(ctx, components[0], components[1], components[2], components[3]);
         CGContextFillPath(ctx);
-        
-//        if (particle.point.x == particle.orignPoint.x
-//            && particle.point.y == particle.orignPoint.y) {
-//            count ++;
-//        }
     }
     if (count == _particleArray.count) {
         [self reset];
@@ -106,27 +104,35 @@
     CGContextRelease(context);
     
     //2. Now your rawData contains the image data in the RGBA8888 pixel format.
+    CGFloat addY = (_maxParticleCount == 0) ? 1 : (imageH/_maxParticleCount);
+    CGFloat addX = (_maxParticleCount == 0) ? 1 : (imageW/_maxParticleCount);
     NSMutableArray *result = [NSMutableArray new];
-    for (int y = 0; y < imageH; y++) {
-        for (int x = 0; x < imageW; x++) {
+    for (int y = 0; y < imageH; y+=addY) {
+        for (int x = 0; x < imageW; x+=addX) {
             NSUInteger byteIndex = bytesPerRow*y + bytesPerPixel*x;
             //rawData一维数组存储方式RGBA(第一个像素)RGBA(第二个像素)...
             CGFloat red   = ((CGFloat) rawData[byteIndex]     ) / 255.0f;
             CGFloat green = ((CGFloat) rawData[byteIndex + 1] ) / 255.0f;
             CGFloat blue  = ((CGFloat) rawData[byteIndex + 2] ) / 255.0f;
             CGFloat alpha = ((CGFloat) rawData[byteIndex + 3] ) / 255.0f;
-            if (alpha == 0 || (red+green+blue == 3)) {
-//                NSLog(@"在（%d,%d）位置是透明的", x, y);
+            
+            if (alpha == 0 ||
+                (_ignoredWhite && (red+green+blue == 3)) ||
+                (_ignoredBlack && (red+green+blue == 0))) {
+                //要忽略的粒子
                 continue;
             }
             
             AZParticle *particle = [AZParticle new];
             particle.color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-            particle.orignColor = particle.color;
             particle.point = CGPointMake(x, y);
-            particle.orignPoint = particle.point;
-//            particle.customColor = [UIColor colorWithRed:0x00/255.f green:0x6e/255.f blue:0xff/255.f alpha:1];
-//            particle.randomPointRange = 5;
+            if (_customColor) {
+                particle.customColor = _customColor;
+            }
+            if (_randomPointRange > 0) {
+                particle.randomPointRange = _randomPointRange;
+            }
+
             [result addObject:particle];
         }
     }

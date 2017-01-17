@@ -15,6 +15,9 @@
 		63A6E5A41E2E171E00802743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5A21E2E171E00802743 /* LaunchScreen.storyboard */; };
 		63A6E5B01E2E174900802743 /* AZEmitterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5AD1E2E174900802743 /* AZEmitterLayer.m */; };
 		63A6E5B11E2E174900802743 /* AZParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5AF1E2E174900802743 /* AZParticle.m */; };
+		63A6E5B41E2E4C8000802743 /* qcloud.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5B31E2E4C8000802743 /* qcloud.gif */; };
+		63A6E5B61E2E4CC400802743 /* qq.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5B51E2E4CC400802743 /* qq.gif */; };
+		63A6E5B81E2E4CD100802743 /* tiger.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63A6E5B71E2E4CD100802743 /* tiger.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		63A6E5AD1E2E174900802743 /* AZEmitterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZEmitterLayer.m; sourceTree = "<group>"; };
 		63A6E5AE1E2E174900802743 /* AZParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZParticle.h; sourceTree = "<group>"; };
 		63A6E5AF1E2E174900802743 /* AZParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZParticle.m; sourceTree = "<group>"; };
+		63A6E5B31E2E4C8000802743 /* qcloud.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = qcloud.gif; sourceTree = "<group>"; };
+		63A6E5B51E2E4CC400802743 /* qq.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = qq.gif; sourceTree = "<group>"; };
+		63A6E5B71E2E4CD100802743 /* tiger.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tiger.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,7 @@
 		63A6E5881E2E171E00802743 = {
 			isa = PBXGroup;
 			children = (
+				63A6E5B21E2E4C7400802743 /* gif */,
 				63A6E5931E2E171E00802743 /* AZEmitter */,
 				63A6E5921E2E171E00802743 /* Products */,
 			);
@@ -95,6 +102,16 @@
 				63A6E5AF1E2E174900802743 /* AZParticle.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		63A6E5B21E2E4C7400802743 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+				63A6E5B31E2E4C8000802743 /* qcloud.gif */,
+				63A6E5B51E2E4CC400802743 /* qq.gif */,
+				63A6E5B71E2E4CD100802743 /* tiger.gif */,
+			);
+			path = gif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +173,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A6E5B61E2E4CC400802743 /* qq.gif in Resources */,
 				63A6E5A41E2E171E00802743 /* LaunchScreen.storyboard in Resources */,
+				63A6E5B81E2E4CD100802743 /* tiger.gif in Resources */,
 				63A6E5A11E2E171E00802743 /* Assets.xcassets in Resources */,
 				63A6E59F1E2E171E00802743 /* Main.storyboard in Resources */,
+				63A6E5B41E2E4C8000802743 /* qcloud.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +352,7 @@
 				63A6E5AA1E2E171E00802743 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

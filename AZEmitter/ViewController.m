@@ -20,24 +20,67 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage* image = [UIImage imageNamed:@"qq.png"];//qcloud.jpg
+    [self showQCloud];
+}
+
+- (void)showTiger {
+    UIImage* image = [UIImage imageNamed:@"tiger.jpg"];//qcloud.jpg|timg.jpeg|qq.png|tiger.jpg
     
     AZEmitterLayer* azEmitterLayer = [AZEmitterLayer new];
     azEmitterLayer.bounds = self.view.bounds;
-    azEmitterLayer.position = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    azEmitterLayer.position = self.view.center;
+    azEmitterLayer.beginPoint = self.view.center;
+    azEmitterLayer.maxParticleCount = 300;
+    azEmitterLayer.randomPointRange = 1.5;
+    azEmitterLayer.ignoredWhite = YES;
     azEmitterLayer.image = image;
+
     [self.view.layer addSublayer:azEmitterLayer];
-    [azEmitterLayer setNeedsDisplay];
+    
+}
+
+- (void)showQCloud {
+    self.view.backgroundColor = [UIColor colorWithRed:0x10/255.f green:0x0c/255.f blue:0x2b/255.f alpha:1];
+    
+    UIImage* image = [UIImage imageNamed:@"qcloud.jpg"];
+    
+    AZEmitterLayer* azEmitterLayer = [AZEmitterLayer new];
+    azEmitterLayer.bounds = self.view.bounds;
+    azEmitterLayer.position = self.view.center;
+    azEmitterLayer.beginPoint = CGPointMake(self.view.center.x, self.view.bounds.size.height);
+    azEmitterLayer.ignoredWhite = YES;
+    azEmitterLayer.maxParticleCount = 150;
+    azEmitterLayer.randomPointRange = 8;
+    azEmitterLayer.customColor = [UIColor colorWithRed:0x00/255.f green:0x6e/255.f blue:0xff/255.f alpha:1];
+    azEmitterLayer.image = image;
     azEmitterLayer.azDelegate = self;
+    [self.view.layer addSublayer:azEmitterLayer];
+    
+}
+
+- (void)showQQ {
+    UIImage* image = [UIImage imageNamed:@"qq.png"];//qcloud.jpg|timg.jpeg|qq.png|tiger.jpg
+    
+    AZEmitterLayer* azEmitterLayer = [AZEmitterLayer new];
+    azEmitterLayer.bounds = self.view.bounds;
+    azEmitterLayer.position = self.view.center;
+    azEmitterLayer.beginPoint = CGPointMake(self.view.center.x, 0);
+    azEmitterLayer.ignoredWhite = YES;
+    azEmitterLayer.image = image;
+    azEmitterLayer.azDelegate = self;
+    [self.view.layer addSublayer:azEmitterLayer];
     
     _button = [UIButton buttonWithType:UIButtonTypeSystem];
     [_button addTarget:azEmitterLayer action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];
 }
-
 - (void)onAnimEnd {
     [_button setTitle:@"手机QQ，乐在沟通" forState:UIControlStateNormal];
     [_button sizeToFit];
-    _button.center = CGPointMake(self.view.center.x, 100);
+    _button.center = CGPointMake(self.view.center.x, 150);
+    _button.alpha = 0;
+    [UIView animateWithDuration:2 animations:^{
+        _button.alpha = 1;
+    }];
 }
 @end

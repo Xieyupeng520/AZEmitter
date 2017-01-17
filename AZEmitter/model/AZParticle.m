@@ -26,22 +26,11 @@
     return _color;
 }
 
-//-(CGPoint)point {
-////    if (_randomPointRange != 0) {
-////        _point.x = _point.x - _randomPointRange + arc4random_uniform(_randomPointRange*2);
-////        _point.y = _point.y - _randomPointRange + arc4random_uniform(_randomPointRange*2);
-////    }
-//    return _point;
-//}
-
 - (void)setRandomPointRange:(CGFloat)randomPointRange {
     _randomPointRange = randomPointRange;
         if (_randomPointRange != 0) {
             _point.x = _point.x - _randomPointRange + arc4random_uniform(_randomPointRange*2);
             _point.y = _point.y - _randomPointRange + arc4random_uniform(_randomPointRange*2);
-            
-            _orignPoint.x = _point.x;
-            _orignPoint.y = _point.y;
         }
 }
 @end
