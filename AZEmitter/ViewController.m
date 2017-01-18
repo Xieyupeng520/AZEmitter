@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self showQCloud];
+    [self showTiger];
 }
 
 - (void)showTiger {
@@ -34,8 +34,17 @@
     azEmitterLayer.randomPointRange = 1.5;
     azEmitterLayer.ignoredWhite = YES;
     azEmitterLayer.image = image;
-
+    azEmitterLayer.azDelegate = self;
     [self.view.layer addSublayer:azEmitterLayer];
+    
+    _button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_button setTitle:@"restart" forState:UIControlStateNormal];
+    [_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _button.frame = CGRectMake(self.view.bounds.size.width - 100, self.view.bounds.size.height - 50, 0, 0);
+    [_button sizeToFit];
+    _button.alpha = 0;
+    [_button addTarget:azEmitterLayer action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_button];
     
 }
 
@@ -56,6 +65,13 @@
     azEmitterLayer.azDelegate = self;
     [self.view.layer addSublayer:azEmitterLayer];
     
+    _button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_button setTitle:@"restart" forState:UIControlStateNormal];
+    [_button sizeToFit];
+    _button.center = CGPointMake(self.view.center.x, 150);
+    _button.alpha = 0;
+    [_button addTarget:azEmitterLayer action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_button];
 }
 
 - (void)showQQ {
@@ -71,14 +87,15 @@
     [self.view.layer addSublayer:azEmitterLayer];
     
     _button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_button addTarget:azEmitterLayer action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_button];
-}
-- (void)onAnimEnd {
     [_button setTitle:@"手机QQ，乐在沟通" forState:UIControlStateNormal];
     [_button sizeToFit];
     _button.center = CGPointMake(self.view.center.x, 150);
     _button.alpha = 0;
+    [_button addTarget:azEmitterLayer action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_button];
+}
+#pragma mark - AZEmitterLayerDelegate
+- (void)onAnimEnd {
     [UIView animateWithDuration:2 animations:^{
         _button.alpha = 1;
     }];
