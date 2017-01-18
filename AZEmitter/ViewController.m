@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self showTiger];
+    [self showQQ];
 }
 
 - (void)showTiger {
