@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		639EBF5A20AE9DBC00ECD4EC /* YQAnimationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EBF5820AE9DBC00ECD4EC /* YQAnimationLayer.m */; };
+		639EBF5D20AEA68E00ECD4EC /* YanHuoAnimationLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EBF5C20AEA68E00ECD4EC /* YanHuoAnimationLayer.m */; };
 		63A6E5961E2E171E00802743 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5951E2E171E00802743 /* main.m */; };
 		63A6E5991E2E171E00802743 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E5981E2E171E00802743 /* AppDelegate.m */; };
 		63A6E59C1E2E171E00802743 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A6E59B1E2E171E00802743 /* ViewController.m */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		639EBF5820AE9DBC00ECD4EC /* YQAnimationLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQAnimationLayer.m; sourceTree = "<group>"; };
+		639EBF5920AE9DBC00ECD4EC /* YQAnimationLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQAnimationLayer.h; sourceTree = "<group>"; };
+		639EBF5B20AEA68E00ECD4EC /* YanHuoAnimationLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YanHuoAnimationLayer.h; sourceTree = "<group>"; };
+		639EBF5C20AEA68E00ECD4EC /* YanHuoAnimationLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YanHuoAnimationLayer.m; sourceTree = "<group>"; };
 		63A6E5911E2E171E00802743 /* AZEmitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZEmitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A6E5951E2E171E00802743 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63A6E5971E2E171E00802743 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +57,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		639EBF5720AE9DA100ECD4EC /* extern */ = {
+			isa = PBXGroup;
+			children = (
+				639EBF5920AE9DBC00ECD4EC /* YQAnimationLayer.h */,
+				639EBF5820AE9DBC00ECD4EC /* YQAnimationLayer.m */,
+				639EBF5B20AEA68E00ECD4EC /* YanHuoAnimationLayer.h */,
+				639EBF5C20AEA68E00ECD4EC /* YanHuoAnimationLayer.m */,
+			);
+			path = extern;
+			sourceTree = "<group>";
+		};
 		63A6E5881E2E171E00802743 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +88,7 @@
 		63A6E5931E2E171E00802743 /* AZEmitter */ = {
 			isa = PBXGroup;
 			children = (
+				639EBF5720AE9DA100ECD4EC /* extern */,
 				63A6E5AB1E2E174900802743 /* model */,
 				63A6E5971E2E171E00802743 /* AppDelegate.h */,
 				63A6E5981E2E171E00802743 /* AppDelegate.m */,
@@ -189,9 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639EBF5A20AE9DBC00ECD4EC /* YQAnimationLayer.m in Sources */,
 				63A6E5B11E2E174900802743 /* AZParticle.m in Sources */,
 				63A6E59C1E2E171E00802743 /* ViewController.m in Sources */,
 				63A6E5B01E2E174900802743 /* AZEmitterLayer.m in Sources */,
+				639EBF5D20AEA68E00ECD4EC /* YanHuoAnimationLayer.m in Sources */,
 				63A6E5991E2E171E00802743 /* AppDelegate.m in Sources */,
 				63A6E5961E2E171E00802743 /* main.m in Sources */,
 			);
@@ -316,7 +336,7 @@
 				DEVELOPMENT_TEAM = 7884U55YA7;
 				INFOPLIST_FILE = AZEmitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = azz.AZEmitter;
+				PRODUCT_BUNDLE_IDENTIFIER = azz.AZEmitter.azz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -328,7 +348,7 @@
 				DEVELOPMENT_TEAM = 7884U55YA7;
 				INFOPLIST_FILE = AZEmitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = azz.AZEmitter;
+				PRODUCT_BUNDLE_IDENTIFIER = azz.AZEmitter.azz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
