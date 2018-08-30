@@ -103,7 +103,7 @@
 }
 
 - (void)showHappy6SNG { //SNG6周年快乐！~
-    self.view.backgroundColor = [UIColor colorWithRed:241/255.f green:240/255.f blue:248/255.f alpha:1];
+//    self.view.backgroundColor = [UIColor colorWithRed:241/255.f green:240/255.f blue:248/255.f alpha:1];
     
     [self showQQ];
     [_button removeFromSuperview];
@@ -138,6 +138,11 @@
     });
 
 //    };
+}
+
+//隐藏iPhone X上的底部横条
+- (BOOL)prefersHomeIndicatorAutoHidden {
+    return YES;
 }
 
 #pragma mark - AZEmitterLayerDelegate

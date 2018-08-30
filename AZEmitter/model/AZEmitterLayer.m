@@ -25,7 +25,7 @@
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(emitterAnim:)];
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         _animTime = 0;
-        _animDuration = 10;
+        _animDuration = 3;
         _count = 0;
         _ignoredWhite = NO;
         _ignoredBlack = NO;
@@ -93,6 +93,7 @@
     CGImageRef imageRef = [image CGImage];
     NSUInteger imageW = CGImageGetWidth(imageRef);
     NSUInteger imageH = CGImageGetHeight(imageRef);
+    NSLog(@"imageW:(%lu)H:(%lu) screenW:(%f)H:(%f)", (unsigned long)imageW, (unsigned long)imageH, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSUInteger bytesPerPixel = 4; //一个像素4字节
     NSUInteger bytesPerRow = bytesPerPixel * imageW;
@@ -126,6 +127,7 @@
             AZParticle *particle = [AZParticle new];
             particle.color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
             particle.point = CGPointMake(x, y);
+            //NSLog(@"particle.point = (%d, %d) aplha = %f", x, y, alpha);
             if (_customColor) {
                 particle.customColor = _customColor;
             }
